@@ -1,0 +1,133 @@
+.content-box {
+  padding-bottom: 50px;
+}
+
+.action-th {
+  width: 11%;
+}
+
+.action-buttons {
+  width: 70px;
+  margin: 2px;
+  float: left;
+  padding: 2px 0px;
+}
+
+.required:after {
+  content: " *";
+  color: red;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+th {
+  white-space: nowrap;
+  padding-right: 15px;
+  padding-left: 5px;
+}
+
+table {
+  width: 100% !important;
+}
+
+.trashShowIcons {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding-left: 0;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.change-password {
+  margin-right: 10px;
+}
+
+.field-icon {
+  float: right;
+  margin-right: 9px;
+  margin-top: -27px;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.filter-on-datatable {
+  display: inline-block;
+  width: 173px;
+  margin-left: 0.5em;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.ck .ck-editor__main > .ck-editor__editable.ck-read-only {
+  background: #E9ECEF;
+}
+
+.pl-35 {
+  padding-left: 35%;
+}
+
+.uploadFile {
+  display: flex;
+}
+
+.date-icon {
+  position: absolute;
+  top: 42px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.wh100 {
+  width: 100% !important;
+}
+
+#overlay {
+  background: #ffffff;
+  color: #666666;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 5000;
+  top: 0;
+  left: 0;
+  float: left;
+  text-align: center;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  margin: 0 auto;
+  width: 120px;
+  height: 120px;
+  animation: rotate 0.8s infinite linear;
+  border: 5px solid #007bff;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.add-author {
+  float: right;
+  top: 10px;
+}
+
+.mt-31 {
+  margin-top: 31px;
+}

@@ -2,82 +2,96 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreEditorRequest;
+use App\Http\Requests\UpdateEditorRequest;
+use App\Models\User;
+use App\Repositories\EditorRepository;
+
 use Illuminate\Http\Request;
 
 class EditorController extends Controller
 {
     /**
+     * @var EditorRepository
+     */
+    public $editorRepository;
+
+    /**
+     * @param EditorRepository $editorRepository
+     */
+    public function __construct(EditorRepository $editorRepository)
+    {
+        $this->editorRepository = $editorRepository;
+    }
+
+    /**
      * Display a listing of the resource.
-     *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->ajax()) return $this->editorRepository->index();
+        return view('admin.editors.index');
+
     }
 
     /**
      * Show the form for creating a new resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('admin.editors.create');
+    }
+
+     /**
+     * @param StoreEditorRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+
+    public function store(StoreEditorRequest $request)
+    {
+        $this->editorRepository->store($request->all());
+        return redirect()->route('editors.index')->with(['message' => 'Successfully created!']);
+    }
+
+    /** @param User $editor
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function show(User $editor)
+    {
+        return view('admin.editors.show', compact('editor'));
+    }
+
+
+    /**
+     * @param User $operator
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function edit(User $editor)
+    {
+        return view('admin.editors.edit', compact('editor'));
+    }
+
+      /**
+     * @param UpdateEditorRequest $request
+     * @param User $editor
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(UpdateEditorRequest $request, User $editor)
+    {
+        $this->editorRepository->update($request->all(), $editor);
+        return redirect()->route('editors.index')->with(['message' => 'Successfully updated!']);
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Summary of destroy
+     * @param User $editor
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function destroy(User $editor)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $this->editorRepository->delete($editor);
+        return redirect()->route('editors.index')->with(['message' => 'Successfully deleted!']);
     }
 }

@@ -14,7 +14,7 @@ class EditorPolicy
      */
     public function read(): bool
     {
-        return auth()->user()->role() == config('role.admin.slug') || auth()->user()->role() == config('role.editor.slug');
+        return auth()->user()->role() == config('role.admin.slug');
     }
 
     /**
@@ -22,7 +22,7 @@ class EditorPolicy
      */
     public function action(): bool
     {
-        return auth()->user()->role() == config('role.admin.slug') || auth()->user()->role() == config('role.editor.slug');
+        return auth()->user()->role() == config('role.admin.slug');
     }
 
 }
