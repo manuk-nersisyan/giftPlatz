@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\EditorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Auth::routes(['register' => false]);
-Route::prefix('admin')->group(function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('admin-home');
+    Route::resource('/editors', EditorController::class)->middleware(['can:read.editor']);
 });
