@@ -317,6 +317,13 @@ return [
             'icon' => 'fas fa-fw fa-user',
             'can'  => 'read.editor',
         ],
+
+        [
+            'text' => 'Categories',
+            'url'  => 'admin/categories',
+            'icon' => 'fas fa-fw fa-list-alt ',
+            'can'  => 'read.category',
+        ],
     ],
 
     /*

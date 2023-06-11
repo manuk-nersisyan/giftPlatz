@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\StoreEditorRequest;
 use App\Http\Requests\UpdateEditorRequest;
 use App\Models\User;
-use App\Repositories\EditorRepository;
+use App\Repositories\Admin\EditorRepository;
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class EditorController extends Controller
 {
@@ -22,6 +23,7 @@ class EditorController extends Controller
     public function __construct(EditorRepository $editorRepository)
     {
         $this->editorRepository = $editorRepository;
+        $this->middleware('can:action.editor')->only(['create','store', 'edit', 'destroy']);
     }
 
     /**
@@ -32,7 +34,6 @@ class EditorController extends Controller
     {
         if ($request->ajax()) return $this->editorRepository->index();
         return view('admin.editors.index');
-
     }
 
     /**

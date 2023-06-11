@@ -1,5 +1,7 @@
 <?php
-use App\Http\Controllers\EditorController;
+
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\EditorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +23,5 @@ Auth::routes(['register' => false]);
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('admin-home');
     Route::resource('/editors', EditorController::class)->middleware(['can:read.editor']);
+    Route::resource('/categories', CategoryController::class)->middleware(['can:read.category']);
 });
