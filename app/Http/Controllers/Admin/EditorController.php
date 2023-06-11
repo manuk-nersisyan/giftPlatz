@@ -6,7 +6,6 @@ use App\Http\Requests\StoreEditorRequest;
 use App\Http\Requests\UpdateEditorRequest;
 use App\Models\User;
 use App\Repositories\Admin\EditorRepository;
-
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 

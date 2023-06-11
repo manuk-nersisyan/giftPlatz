@@ -324,6 +324,13 @@ return [
             'icon' => 'fas fa-fw fa-list-alt ',
             'can'  => 'read.category',
         ],
+
+        [
+            'text' => 'Subcategories',
+            'url'  => 'admin/subcategories',
+            'icon' => 'fas fa-fw fa-list-alt ',
+            'can'  => 'read.subcategory',
+        ],
     ],
 
     /*

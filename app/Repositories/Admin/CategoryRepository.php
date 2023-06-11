@@ -72,13 +72,14 @@ class CategoryRepository implements CategoryRepositoryInterface
         return $category->delete();
     }
 
-    // /**
-    //  * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
-    //  */
-    // public function all()
-    // {
-    //     return User::query()
-    //         ->select('users.*')
-    //         ->get();
-    // }
+    /**
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function all()
+    {
+        return Category::query()
+            ->select('id','name')
+            ->where('is_active', true)
+            ->get();
+    }
 }

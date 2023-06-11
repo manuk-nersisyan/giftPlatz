@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SubcategoryController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\EditorController;
 use Illuminate\Support\Facades\Route;
@@ -24,4 +25,5 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('admin-home');
     Route::resource('/editors', EditorController::class)->middleware(['can:read.editor']);
     Route::resource('/categories', CategoryController::class)->middleware(['can:read.category']);
+    Route::resource('/subcategories', SubcategoryController::class)->middleware(['can:read.subcategory']);
 });

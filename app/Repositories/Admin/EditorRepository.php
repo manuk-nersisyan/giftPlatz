@@ -73,14 +73,4 @@ class EditorRepository implements EditorRepositoryInterface
     {
         return $editor->delete();
     }
-
-    // /**
-    //  * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
-    //  */
-    // public function all()
-    // {
-    //     return User::query()
-    //         ->select('users.*')
-    //         ->get();
-    // }
 }
