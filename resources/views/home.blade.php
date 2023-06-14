@@ -14,5 +14,4 @@
 @stop
 
 @push('js')
-    {{-- @include('sweet-alert-messages') --}}
 @endpush

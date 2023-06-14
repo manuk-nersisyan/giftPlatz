@@ -3,10 +3,10 @@
 namespace App\Repositories\Admin;
 
 use App\Models\Subcategory;
-use App\Repositories\Admin\subcategoryRepositoryInterface;
+use App\Repositories\Admin\SubcategoryRepositoryInterface;
 use Yajra\DataTables\DataTables;
 
-class subcategoryRepository implements subcategoryRepositoryInterface
+class SubcategoryRepository implements SubcategoryRepositoryInterface
 {
     /**
      * @return mixed
@@ -73,13 +73,22 @@ class subcategoryRepository implements subcategoryRepositoryInterface
         return $subcategory->delete();
     }
 
-    // /**
-    //  * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
-    //  */
-    // public function all()
-    // {
-    //     return User::query()
-    //         ->select('users.*')
-    //         ->get();
-    // }
+    /**
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function getSubcategoriesByCategoaryId($category_id)
+    {
+        return Subcategory::query()
+            ->with([
+                'category' => function ($category) {
+                    $category->select(['id', 'name']);
+                  }])
+            ->whereHas('category', function ($query)use($category_id) {
+                $query->where('categories.id', $category_id)
+                ->where('categories.is_active', true);
+            })
+            ->select('subcategories.id', 'subcategories.name')
+            ->where('subcategories.is_active', true)
+            ->get();
+    }
 }

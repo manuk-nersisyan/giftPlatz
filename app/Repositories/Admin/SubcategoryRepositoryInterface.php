@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Admin;
 
-interface subcategoryRepositoryInterface
+interface SubcategoryRepositoryInterface
 {
     /**
      * @return mixed

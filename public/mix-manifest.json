@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/showHidePassword.js": "/js/showHidePassword.js",
+    "/js/getSubcategoriesByCategoryId.js": "/js/getSubcategoriesByCategoryId.js",
     "/css/app.css": "/css/app.css",
     "/css/style.css": "/css/style.css"
 }

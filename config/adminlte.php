@@ -321,15 +321,22 @@ return [
         [
             'text' => 'Categories',
             'url'  => 'admin/categories',
-            'icon' => 'fas fa-fw fa-list-alt ',
+            'icon' => 'fas fa-fw fa-list-alt',
             'can'  => 'read.category',
         ],
 
         [
             'text' => 'Subcategories',
             'url'  => 'admin/subcategories',
-            'icon' => 'fas fa-fw fa-list-alt ',
+            'icon' => 'fas fa-fw fa-list-alt',
             'can'  => 'read.subcategory',
+        ],
+
+        [
+            'text' => 'Products',
+            'url'  => 'admin/products',
+            'icon' => 'fas fa-fw fa-product-hunt',
+            'can'  => 'read.product',
         ],
     ],
 

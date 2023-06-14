@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Policies\CategoryPolicy;
 use App\Policies\EditorPolicy;
+use App\Policies\ProductPolicy;
 use App\Policies\SubcategoryPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -36,5 +37,8 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('read.subcategory',  [SubcategoryPolicy::class, 'read']);
         Gate::define('action.subcategory',  [SubcategoryPolicy::class, 'action']);
+
+        Gate::define('read.product',  [ProductPolicy::class, 'read']);
+        Gate::define('action.product',  [ProductPolicy::class, 'action']);
     }
 }

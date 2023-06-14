@@ -6,7 +6,7 @@ use App\Http\Requests\StoreSubcategoryRequest;
 use App\Http\Requests\UpdateSubcategoryRequest;
 use App\Models\Subcategory;
 use App\Repositories\Admin\CategoryRepository;
-use App\Repositories\Admin\subcategoryRepository;
+use App\Repositories\Admin\SubcategoryRepository;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -26,7 +26,7 @@ class SubcategoryController extends Controller
 
     /**
      * Summary of __construct
-     * @param \App\Repositories\Admin\subcategoryRepository $subcategoryRepository
+     * @param \App\Repositories\Admin\SubcategoryRepository $subcategoryRepository
      * @param \App\Repositories\Admin\CategoryRepository $categoryRepository
      */
     public function __construct(SubcategoryRepository $subcategoryRepository,
@@ -112,5 +112,12 @@ class SubcategoryController extends Controller
     {
         $this->subcategoryRepository->delete($subcategory);
         return redirect()->route('subcategories.index')->with(['message' => 'Successfully deleted!']);
+    }
+
+
+    public function getSubcategoriesByCategoaryId(Request $request)
+    {
+       $subcategories = $this->subcategoryRepository->getSubcategoriesByCategoaryId($request->get('category_id'));
+        return response()->json($subcategories, 200);
     }
 }
