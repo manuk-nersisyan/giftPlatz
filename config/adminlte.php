@@ -316,6 +316,7 @@ return [
             'url'  => 'admin/editors',
             'icon' => 'fas fa-fw fa-user',
             'can'  => 'read.editor',
+            'active' => ['admin/editors*']
         ],
 
         [
@@ -323,6 +324,7 @@ return [
             'url'  => 'admin/categories',
             'icon' => 'fas fa-fw fa-list-alt',
             'can'  => 'read.category',
+            'active' => ['admin/categories*']
         ],
 
         [
@@ -330,6 +332,7 @@ return [
             'url'  => 'admin/subcategories',
             'icon' => 'fas fa-fw fa-list-alt',
             'can'  => 'read.subcategory',
+            'active' => ['admin/subcategories*']
         ],
 
         [
@@ -337,6 +340,7 @@ return [
             'url'  => 'admin/products',
             'icon' => 'fas fa-fw fa-product-hunt',
             'can'  => 'read.product',
+            'active' => ['admin/products*']
         ],
     ],
 
