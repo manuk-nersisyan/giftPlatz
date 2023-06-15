@@ -253,7 +253,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => '/admin/home',
+    'dashboard_url' => '/admin',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -341,6 +341,20 @@ return [
             'icon' => 'fas fa-fw fa-product-hunt',
             'can'  => 'read.product',
             'active' => ['admin/products*']
+        ],
+
+        [
+            'text' => 'Contact',
+            'url'  => 'admin/contact',
+            'icon' => 'fas fa-fw fa-envelope',
+            'can'  => 'read.contact',
+        ],
+
+        [
+            'text' => 'About Us',
+            'url'  => 'admin/about-us',
+            'icon' => 'fas fa-fw fa-info-circle',
+            'can'  => 'read.about-us',
         ],
     ],
 

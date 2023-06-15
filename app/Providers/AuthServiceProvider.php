@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Policies\AboutUsPolicy;
 use App\Policies\CategoryPolicy;
+use App\Policies\ContactPolicy;
 use App\Policies\EditorPolicy;
 use App\Policies\ProductPolicy;
 use App\Policies\SubcategoryPolicy;
@@ -40,5 +42,11 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('read.product',  [ProductPolicy::class, 'read']);
         Gate::define('action.product',  [ProductPolicy::class, 'action']);
+
+        Gate::define('read.contact',  [ContactPolicy::class, 'read']);
+        Gate::define('action.contact',  [ContactPolicy::class, 'action']);
+
+        Gate::define('read.about-us',  [AboutUsPolicy::class, 'read']);
+        Gate::define('action.about-us',  [AboutUsPolicy::class, 'action']);
     }
 }

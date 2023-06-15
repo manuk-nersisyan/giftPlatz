@@ -94,9 +94,9 @@
 
     <div class="form-group row">
         <div class="col-6">
-            <label class="required">Images</label>
-            <input type="file" name="images[]" class="form-control" multiple required>
-            @error('images')
+            <label for="images" class="required">Images</label>
+            <input type="file" name="images[]" class="form-control @error('images*') is-invalid @enderror" multiple required>
+            @error('images*')
             <div class="invalid-feedback">
                 <strong>{{ $message }}</strong>
             </div>

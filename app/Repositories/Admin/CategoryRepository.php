@@ -3,11 +3,7 @@
 namespace App\Repositories\Admin;
 
 use App\Models\Category;
-use App\Models\Role;
-use App\Models\User;
 use App\Repositories\Admin\CategoryRepositoryInterface;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
 
 class CategoryRepository implements CategoryRepositoryInterface

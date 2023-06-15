@@ -58,6 +58,11 @@ return [
             'root'   => storage_path('app/public/files/products'),
             'url'    => env('APP_URL').'/storage/files/products'
         ],
+        'aboutUs' => [
+            'driver' => 'local',
+            'root'   => storage_path('app/public/files/about-us'),
+            'url'    => env('APP_URL').'/storage/files/about-us'
+        ],
     ],
 
     /*

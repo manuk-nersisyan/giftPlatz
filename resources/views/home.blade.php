@@ -1,17 +1,11 @@
-@extends('adminlte::page')
-
-@section('title', 'Dashboard')
-
-@section('content_header')
-    Dashboard
-@stop
+@extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-        </div>
+    <div class="content">
+        @foreach ($products as $product)
+        {{-- {{ dd($product) }} --}}
+           {{-- <h1>{{ $product->name }}</h1> --}}
+           <h1>{{ $product->name }}</h1>
+        @endforeach
     </div>
-@stop
-
-@push('js')
-@endpush
+@endsection

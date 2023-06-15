@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\SubcategoryController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\EditorController;
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\HomeController as ControllersHomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +21,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes(['register' => false]);
 Route::prefix('admin')->middleware(['auth'])->group(function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('admin-home');
+    Route::get('/', [HomeController::class, 'index'])->name('admin-home');
     Route::resource('/editors', EditorController::class)->middleware(['can:read.editor']);
     Route::resource('/categories', CategoryController::class)->middleware(['can:read.category']);
     Route::get('/get-subcategories-by-category-id', [SubcategoryController::class, 'getSubcategoriesByCategoaryId'])
@@ -31,4 +32,10 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
                                                         ->middleware(['can:read.subcategory']);
     Route::resource('/subcategories', SubcategoryController::class)->middleware(['can:read.subcategory']);
     Route::resource('/products', ProductController::class)->middleware(['can:read.product']);
+    Route::get('/contact', [ContactController::class, 'index'])->name('get-contact')->middleware(['can:read.contact']);
+    Route::put('/contact/{contact}', [ContactController::class, 'update'])->name('update-contact')->middleware(['can:read.contact']);
+
+    Route::get('/about-us', [AboutUsController::class, 'index'])->name('get-about-us')->middleware(['can:read.about-us']);
+    Route::put('/about-us/{about_us}', [AboutUsController::class, 'update'])->name('update-about-us')->middleware(['can:read.about-us']);
 });
+Route::get('/',  [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -56,7 +56,7 @@ class ProductRepository implements ProductRepositoryInterface
         $newProduct->is_actual = $product['is_actual']?? false;
         $newProduct->save();
         if (isset($product['images'])) {
-            $productImages = fileSave($product['images'], 'product', $newProduct->id);
+            $productImages = filesSave($product['images'], 'product', $newProduct->id);
             $newProduct->images()->insert($productImages);
         };
         return $newProduct;
@@ -84,7 +84,7 @@ class ProductRepository implements ProductRepositoryInterface
                 }
             }
             $product->images()->delete();
-            $productImages = fileSave($request['images'], 'product', $product->id);
+            $productImages = filesSave($request['images'], 'product', $product->id);
             $product->images()->insert($productImages);
         };
         return $product;

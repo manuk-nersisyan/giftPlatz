@@ -112,9 +112,9 @@
 
     <div class="form-group row">
         <div class="col-6">
-            <label>Images</label>
-            <input type="file" name="images[]" class="form-control" multiple>
-            @error('images')
+            <label for="images">Images</label>
+            <input type="file" name="images[]" class="form-control @error('images*') is-invalid @enderror" multiple>
+            @error('images*')
             <div class="invalid-feedback">
                 <strong>{{ $message }}</strong>
             </div>

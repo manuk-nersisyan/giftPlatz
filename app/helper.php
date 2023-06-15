@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-if (!function_exists('fileSave')) {
-    function fileSave($files, $path, $id)
+if (!function_exists('filesSave')) {
+    function filesSave($files, $path, $id)
     {
         $fileNames = [];
         foreach($files as $key=>$file) {
@@ -14,5 +14,13 @@ if (!function_exists('fileSave')) {
            $fileNames[$key]['image'] = $fileName;
         }
         return $fileNames;
+    }
+}
+if (!function_exists('fileSave')) {
+    function fileSave($file, $path)
+    {
+        $fileName = Str::random(10) . '.'. $file->getClientOriginalExtension();
+        Storage::disk($path)->put($fileName, file_get_contents($file));
+        return $fileName;
     }
 }

@@ -2,19 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Repositories\AboutUsRepository;
+use App\Repositories\ProductRepository;
 
 class HomeController extends Controller
 {
+
     /**
-     * Create a new controller instance.
-     *
-     * @return void
+     * Summary of productRepository
+     * @var
      */
-    public function __construct()
+    public $productRepository;
+
+    /**
+     * Summary of aboutUsRepository
+     * @var
+     */
+    public $aboutUsRepository;
+
+    /**
+     * Summary of __construct
+     * @param \App\Repositories\AboutUsRepository $aboutUsRepository
+     * @param \App\Repositories\ProductRepository $productRepository
+     */
+    public function __construct(AboutUsRepository $aboutUsRepository,
+                                ProductRepository $productRepository)
     {
-        $this->middleware('auth');
+        $this->aboutUsRepository = $aboutUsRepository;
+        $this->productRepository = $productRepository;
     }
+
 
     /**
      * Show the application dashboard.
@@ -23,6 +40,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $aboutUs = $this->aboutUsRepository->index();
+        $products = $this->productRepository->index();
+        return view('home', compact('aboutUs', 'products'));
     }
 }
