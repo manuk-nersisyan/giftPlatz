@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Repositories\AboutUsRepository;
 use App\Repositories\ContactRepository;
 use App\Repositories\CategoryRepository;
+use App\Repositories\FooterRepository;
+use App\Repositories\HeaderRepository;
 use App\Repositories\ProductRepository;
 
 class HomeController extends Controller
@@ -26,23 +28,39 @@ class HomeController extends Controller
      * @var
      */
     public $categoryRepository;
-    
+
     /**
      * Summary of contactRepository
      * @var
      */
     public $contactRepository;
 
+    /**
+     * Summary of headerRepository
+     * @var
+     */
+    public $headerRepository;
+
+    /**
+     * Summary of headerRepository
+     * @var
+     */
+    public $footerRepository;
+
 
     public function __construct(AboutUsRepository $aboutUsRepository,
                                 ProductRepository $productRepository,
                                 CategoryRepository $categoryRepository,
-                                ContactRepository $contactRepository)
+                                ContactRepository $contactRepository,
+                                HeaderRepository $headerRepository,
+                                FooterRepository $footerRepository)
     {
         $this->aboutUsRepository = $aboutUsRepository;
         $this->productRepository = $productRepository;
         $this->categoryRepository = $categoryRepository;
         $this->contactRepository = $contactRepository;
+        $this->headerRepository = $headerRepository;
+        $this->footerRepository = $footerRepository;
     }
 
 
@@ -57,6 +75,8 @@ class HomeController extends Controller
         $products = $this->productRepository->index();
         $categories = $this->categoryRepository->index();
         $contact = $this->contactRepository->index();
-        return view('home', compact('aboutUs', 'products', 'categories', 'contact'));
+        $header = $this->headerRepository->index();
+        $footer = $this->footerRepository->index();
+        return view('home', compact('aboutUs', 'products', 'categories', 'contact', 'header', 'footer'));
     }
 }

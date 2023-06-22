@@ -15,7 +15,6 @@ class ProductController extends Controller
      */
     public $productRepository;
 
-
     /**
      * Summary of categoryRepository
      * @var

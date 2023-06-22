@@ -61,7 +61,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <div class="modal-title">
-                                    <img src="{{ asset('images/logo_top.svg') }}" alt="logo"/>
+                                    <img src="{{ Storage::disk('header')->url($header->logo) }}" alt="logo"/>
                                 </div>
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
@@ -74,11 +74,11 @@
                     </div>
                 </div>
                 <div class="subscribe__logo">
-                    <img src="{{ asset('images/logo_footer.svg') }}" alt="logo"/>
+                    <img src="{{ Storage::disk('footer')->url($footer->logo) }}" alt="logo"/>
                 </div>
             </div>
         </div>
     </div>
-    <div class="footer__giftplatz">© 2018 Giftplatz. Все права защищены. </div>
+    <div class="footer__giftplatz">{{ $footer->text }}</div>
 </div>
 <script type="text/javascript" src="{{ asset('js/giftplatz.js') }}"></script>

@@ -1,7 +1,7 @@
 <div class="main">
     <div class="header">
         <div class="header__logo">
-            <img src="{{ asset('images/logo_top.svg') }}" alt="Giftplatz"/>
+            <img src="{{ Storage::disk('header')->url($header->logo) }}" alt="Giftplatz"/>
         </div>
         <a class="header__burger" href="#PhoneMenu" role="button" data-toggle="modal">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28" height="15">
@@ -16,7 +16,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <div class="header__logo">
-                            <img src="{{ asset('images/logo_top.svg') }}" alt="Giftplatz"/>
+                            <img src="{{ Storage::disk('header')->url($header->logo) }}" alt="Giftplatz"/>
                         </div>
                         <button class="close" id="phoneMenuClose" type="button" data-dismiss="modal">
                             <span aria-hidden="true">X</span>
