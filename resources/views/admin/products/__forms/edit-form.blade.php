@@ -99,7 +99,7 @@
             <label for="description"  class="required">Description</label>
             <textarea name="description"
                     id="description"
-                    class="form-control @error('description') is-invalid @enderror"
+                    class="form-control editor @error('description') is-invalid @enderror"
                     rows="5"
                     required>@if($errors->any()){{ old('description') }}@else{{ $product->description }}@endif</textarea>
             @error('description')
