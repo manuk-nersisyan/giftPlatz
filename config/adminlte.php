@@ -356,6 +356,13 @@ return [
             'icon' => 'fas fa-fw fa-info-circle',
             'can'  => 'read.about-us',
         ],
+
+        [
+            'text' => 'Header',
+            'url'  => 'admin/header',
+            'icon' => 'fas fa-fw fa-info-circle',
+            'can'  => 'read.header',
+        ],
     ],
 
     /*

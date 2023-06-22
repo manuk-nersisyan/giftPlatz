@@ -63,6 +63,12 @@ return [
             'root'   => storage_path('app/public/files/about-us'),
             'url'    => env('APP_URL').'/storage/files/about-us'
         ],
+
+        'header' => [
+            'driver' => 'local',
+            'root'   => storage_path('app/public/files/header'),
+            'url'    => env('APP_URL').'/storage/files/header'
+        ],
     ],
 
     /*

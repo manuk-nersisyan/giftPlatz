@@ -30,6 +30,8 @@ class UpdateContactRequest extends FormRequest
             'is_actual' => 'sometimes|accepted',
             'lat' => 'required|string|max:255',
             'long' => 'required|string|max:255',
+            'facebook_link' => 'required|string|max:255',
+            'instagram_link' => 'required|string|max:255',
         ];
     }
 }

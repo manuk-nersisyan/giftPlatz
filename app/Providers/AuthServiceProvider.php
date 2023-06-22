@@ -6,6 +6,7 @@ use App\Policies\AboutUsPolicy;
 use App\Policies\CategoryPolicy;
 use App\Policies\ContactPolicy;
 use App\Policies\EditorPolicy;
+use App\Policies\HeaderPolicy;
 use App\Policies\ProductPolicy;
 use App\Policies\SubcategoryPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -48,5 +49,8 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('read.about-us',  [AboutUsPolicy::class, 'read']);
         Gate::define('action.about-us',  [AboutUsPolicy::class, 'action']);
+
+        Gate::define('read.header',  [HeaderPolicy::class, 'read']);
+        Gate::define('action.header',  [HeaderPolicy::class, 'action']);
     }
 }

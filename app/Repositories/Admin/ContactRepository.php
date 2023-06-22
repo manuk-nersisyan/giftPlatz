@@ -30,6 +30,8 @@ class ContactRepository implements ContactRepositoryInterface
             'email' => $request['email'],
             'lat' => $request['lat'],
             'long' => $request['long'],
+            'facebook_link' => $request['facebook_link'],
+            'instagram_link' => $request['instagram_link'],
         ]);
     }
 }

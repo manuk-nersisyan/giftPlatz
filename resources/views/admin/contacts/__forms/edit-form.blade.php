@@ -77,6 +77,37 @@
         </div>
     </div>
 
+    <div class="form-group row">
+        <div class="col-3">
+            <label for="facebook_link" class="required">Fcebook Link</label>
+            <input type="text"
+                   name="facebook_link"
+                   id="facebook_link"
+                   class="form-control @error('facebook_link') is-invalid @enderror"
+                   value="@if($errors->any()){{ old('facebook_link') }}@else{{ $contact->facebook_link }}@endif"
+                   required>
+            @error('facebook_link')
+            <div class="invalid-feedback">
+                <strong>{{ $message }}</strong>
+            </div>
+            @enderror
+        </div>
+        <div class="col-3">
+            <label for="instagram_link" class="required">Instagram Link</label>
+            <input type="text"
+                   name="instagram_link"
+                   id="instagram_link"
+                   class="form-control @error('instagram_link') is-invalid @enderror"
+                   value="@if($errors->any()){{ old('instagram_link') }}@else{{ $contact->instagram_link }}@endif"
+                   required>
+            @error('long')
+            <div class="invalid-feedback">
+                <strong>{{ $message }}</strong>
+            </div>
+            @enderror
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-2 col-lg-2 col-3">
             <button type="submit" class="btn btn-primary btn-block">Save</button>
