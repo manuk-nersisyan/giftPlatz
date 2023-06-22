@@ -6,6 +6,7 @@ use App\Policies\AboutUsPolicy;
 use App\Policies\CategoryPolicy;
 use App\Policies\ContactPolicy;
 use App\Policies\EditorPolicy;
+use App\Policies\FooterPolicy;
 use App\Policies\HeaderPolicy;
 use App\Policies\ProductPolicy;
 use App\Policies\SubcategoryPolicy;
@@ -52,5 +53,8 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('read.header',  [HeaderPolicy::class, 'read']);
         Gate::define('action.header',  [HeaderPolicy::class, 'action']);
+
+        Gate::define('read.footer',  [FooterPolicy::class, 'read']);
+        Gate::define('action.footer',  [FooterPolicy::class, 'action']);
     }
 }

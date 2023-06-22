@@ -363,6 +363,13 @@ return [
             'icon' => 'fas fa-fw fa-info-circle',
             'can'  => 'read.header',
         ],
+
+        [
+            'text' => 'Footer',
+            'url'  => 'admin/footer',
+            'icon' => 'fas fa-fw fa-info-circle',
+            'can'  => 'read.footer',
+        ],
     ],
 
     /*
