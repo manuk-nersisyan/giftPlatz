@@ -20,6 +20,8 @@ class CreateContactsTable extends Migration
             $table->string('email');
             $table->string('lat');
             $table->string('long');
+            $table->string('facebook_link');
+            $table->string('instagram_link');
             $table->timestamps();
         });
     }

@@ -15,5 +15,7 @@ class Contact extends Model
         'email',
         'lat',
         'long',
+        'facebook_link',
+        'instagram_link'
     ];
 }

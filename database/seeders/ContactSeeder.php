@@ -20,6 +20,8 @@ class ContactSeeder extends Seeder
             'email' => 'zakaz@giftplatz.ru',
             'lat' => '55.7558',
             'long' => ' 37.6173',
+            'facebook_link' => 'https://www.facebook.com/',
+            'instagram_link' => 'https://www.instagram.com/'
         ]);
     }
 }
