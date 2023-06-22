@@ -35,4 +35,29 @@ class ProductRepository implements ProductRepositoryInterface
         ->where('products.is_actual', true)
         ->get();
     }
+
+    public function getProductsByCategoryId($categoryId)
+    {
+        return Product::query()->with(['images'])
+        ->select([
+            'products.*',
+            'categories.name as category_name',
+            'subcategories.name as subcategory_name'
+        ])
+        ->join('categories', function ($q)use($categoryId) {
+            $q->on('categories.id', '=', 'products.category_id')
+                ->where('categories.is_active', true)
+                ->where('categories.id', $categoryId);
+        })
+        ->leftJoin('subcategories', function ($q) {
+            $q->on('subcategories.id', '=', 'products.subcategory_id')
+                ->where('subcategories.is_active', true);
+        })
+        ->where(function ($q) {
+            $q->whereNull('products.subcategory_id')
+                ->orWhere('subcategories.is_active', true);
+        })
+        ->where('products.is_active', true)
+        ->get();
+    }
 }

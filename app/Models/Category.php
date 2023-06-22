@@ -25,4 +25,12 @@ class Category extends Model
     {
         return $this->hasMany(Subcategory::class);
     }
+
+        /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function activeSubcategories(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Subcategory::class)->where('is_active', true);
+    }
 }

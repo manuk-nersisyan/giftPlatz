@@ -22,7 +22,7 @@
             <label for="description"  class="required">Description</label>
             <textarea name="description"
                     id="description"
-                    class="form-control @error('description') is-invalid @enderror"
+                    class="form-control editor @error('description') error is-invalid @enderror"
                     rows="5"
                     required>@if($errors->any()){{ old('description') }}@else{{ $aboutUs->description }}@endif</textarea>
             @error('description')
@@ -50,7 +50,7 @@
     </div>
 
     <div class="row">
-        <div class="col-2">
+        <div class="col-md-2 col-lg-2 col-3">
             <button type="submit" class="btn btn-primary btn-block">Save</button>
         </div>
     </div>

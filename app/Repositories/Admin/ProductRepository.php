@@ -49,7 +49,7 @@ class ProductRepository implements ProductRepositoryInterface
     {
         $newProduct = new Product;
         $newProduct->category_id = $product['category_id'];
-        $newProduct->subcategory_id = $product['subcategory_id']?? null;
+        $newProduct->subcategory_id = is_null($product['subcategory_id'])? $product['subcategory_id']: null;
         $newProduct->name = $product['name'];
         $newProduct->description = $product['description'];
         $newProduct->is_active = $product['is_active']?? false;
@@ -71,7 +71,7 @@ class ProductRepository implements ProductRepositoryInterface
     {
         $product->update([
             'category_id' => $request['category_id'],
-            'subcategory_id' => $request['subcategory_id']?? null,
+            'subcategory_id' => is_null($product['subcategory_id'])? $request['subcategory_id']: null,
             'name' => $request['name'],
             'description' => $request['description'],
             'is_active' => $request['is_active']?? false,

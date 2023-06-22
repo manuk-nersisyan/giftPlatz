@@ -8,7 +8,7 @@
                     name="category_id"
                     class="form-control @error('category_id') is-invalid @enderror"
                     required>
-                <option value="" selected>Choose</option>
+                    <option value=" " selected>Choose</option>
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}"
                         @if ($errors->any() && old('category_id') == $category->id)
@@ -31,7 +31,7 @@
             <select id="subcategory_id"
                     name="subcategory_id"
                     class="form-control @error('subcategory_id') is-invalid @enderror">
-                <option value="" selected>Choose</option>
+                <option value=" " selected>Choose</option>
                 @foreach($product->category->subcategories as $subcategory)
                     <option value="{{ $subcategory->id }}"
                         @if($errors->any() && old('subcategory_id') == $subcategory->id)
@@ -131,10 +131,10 @@
     </div>
 
     <div class="row">
-        <div class="col-2">
+        <div class="col-md-2 col-lg-2 col-3">
             <button type="submit" class="btn btn-primary btn-block">Save</button>
         </div>
-        <div class="col-2">
+        <div class="col-md-2 col-lg-2 col-3">
             <a href="{{ route('products.index') }}" class="btn btn-primary btn-block">Cancel</a>
         </div>
     </div>

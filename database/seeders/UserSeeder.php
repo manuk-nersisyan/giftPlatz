@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'id' => 16,
             'name'=>'admin',
             'email' => 'admin@admin.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('P@$$w0rdGP2023'),
             'role_id' => Role::query()->where('slug',config('role.admin.slug'))->first()->id
     ];
         User::query()->create($data);

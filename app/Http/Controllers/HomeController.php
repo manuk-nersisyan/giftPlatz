@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\AboutUsRepository;
+use App\Repositories\ContactRepository;
+use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 
 class HomeController extends Controller
 {
-
     /**
      * Summary of productRepository
      * @var
@@ -21,15 +22,27 @@ class HomeController extends Controller
     public $aboutUsRepository;
 
     /**
-     * Summary of __construct
-     * @param \App\Repositories\AboutUsRepository $aboutUsRepository
-     * @param \App\Repositories\ProductRepository $productRepository
+     * Summary of categoryRepository
+     * @var
      */
+    public $categoryRepository;
+    
+    /**
+     * Summary of contactRepository
+     * @var
+     */
+    public $contactRepository;
+
+
     public function __construct(AboutUsRepository $aboutUsRepository,
-                                ProductRepository $productRepository)
+                                ProductRepository $productRepository,
+                                CategoryRepository $categoryRepository,
+                                ContactRepository $contactRepository)
     {
         $this->aboutUsRepository = $aboutUsRepository;
         $this->productRepository = $productRepository;
+        $this->categoryRepository = $categoryRepository;
+        $this->contactRepository = $contactRepository;
     }
 
 
@@ -42,6 +55,8 @@ class HomeController extends Controller
     {
         $aboutUs = $this->aboutUsRepository->index();
         $products = $this->productRepository->index();
-        return view('home', compact('aboutUs', 'products'));
+        $categories = $this->categoryRepository->index();
+        $contact = $this->contactRepository->index();
+        return view('home', compact('aboutUs', 'products', 'categories', 'contact'));
     }
 }

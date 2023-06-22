@@ -84,8 +84,7 @@ class SubcategoryRepository implements SubcategoryRepositoryInterface
                     $category->select(['id', 'name']);
                   }])
             ->whereHas('category', function ($query)use($category_id) {
-                $query->where('categories.id', $category_id)
-                ->where('categories.is_active', true);
+                $query->where('categories.id', $category_id);
             })
             ->select('subcategories.id', 'subcategories.name')
             ->where('subcategories.is_active', true)

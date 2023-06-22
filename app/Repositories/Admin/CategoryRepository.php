@@ -75,7 +75,7 @@ class CategoryRepository implements CategoryRepositoryInterface
     {
         return Category::query()
             ->select('id','name')
-            ->where('is_active', true)
+            // ->where('is_active', true)
             ->get();
     }
 }

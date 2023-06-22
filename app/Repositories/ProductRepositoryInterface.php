@@ -9,5 +9,7 @@ interface ProductRepositoryInterface
      */
     public function index();
 
+    public function getProductsByCategoryId($categoryId);
+
 }
 
