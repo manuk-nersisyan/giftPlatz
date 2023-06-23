@@ -71,12 +71,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $aboutUs = $this->aboutUsRepository->index();
-        $products = $this->productRepository->index();
-        $categories = $this->categoryRepository->index();
-        $contact = $this->contactRepository->index();
-        $header = $this->headerRepository->index();
-        $footer = $this->footerRepository->index();
-        return view('home', compact('aboutUs', 'products', 'categories', 'contact', 'header', 'footer'));
+
+        return view('home_v1');
+        // $aboutUs = $this->aboutUsRepository->index();
+        // $products = $this->productRepository->index();
+        // $categories = $this->categoryRepository->index();
+        // $contact = $this->contactRepository->index();
+        // $header = $this->headerRepository->index();
+        // $footer = $this->footerRepository->index();
+        // return view('home', compact('aboutUs', 'products', 'categories', 'contact', 'header', 'footer'));
     }
 }
