@@ -43,5 +43,5 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/footer', [FooterController::class, 'index'])->name('get-footer')->middleware(['can:read.footer']);
     Route::put('/footer/{footer}', [FooterController::class, 'update'])->name('update-footer')->middleware(['can:read.footer']);
 });
-Route::get('/',  [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('category/products/{category}',  [App\Http\Controllers\CategoryController::class, 'getProductsByCategoryId'])->name('get-products-by-category-id');
+// Route::get('/',  [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('category/products/{category}',  [App\Http\Controllers\CategoryController::class, 'getProductsByCategoryId'])->name('get-products-by-category-id');
