@@ -76,8 +76,7 @@
             <textarea name="description"
                     id="description"
                     class="form-control editor @error('description') is-invalid @enderror"
-                    rows="5"
-                    required>{{ old('description') }}</textarea>
+                    rows="5">{{ old('description') }}</textarea>
             @error('description')
             <div class="invalid-feedback">
                 <strong>{{ $message }}</strong>
