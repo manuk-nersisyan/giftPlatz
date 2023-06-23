@@ -41,7 +41,7 @@ class CategoryRepository implements CategoryRepositoryInterface
     {
         return Category::query()->create([
             'name' => $category['name'],
-            'is_active' => $category['is_active'] ?? false,
+            'is_active' => isset($category['is_active'])? true: false,
         ]);
     }
 
@@ -54,7 +54,7 @@ class CategoryRepository implements CategoryRepositoryInterface
     {
         return $category->update([
             'name' => $request['name'],
-            'is_active' => $request['is_active'] ?? false,
+            'is_active' => isset($request['is_active'])? true: false,
         ]);
     }
 

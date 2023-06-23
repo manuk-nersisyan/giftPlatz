@@ -52,8 +52,8 @@ class ProductRepository implements ProductRepositoryInterface
         $newProduct->subcategory_id = is_null($product['subcategory_id'])? $product['subcategory_id']: null;
         $newProduct->name = $product['name'];
         $newProduct->description = $product['description'];
-        $newProduct->is_active = $product['is_active']?? false;
-        $newProduct->is_actual = $product['is_actual']?? false;
+        $newProduct->is_active = isset($product['is_active'])? true: false;
+        $newProduct->is_actual = isset($product['is_actual'])? true: false;
         $newProduct->save();
         if (isset($product['images'])) {
             $productImages = filesSave($product['images'], 'product', $newProduct->id);
@@ -74,8 +74,8 @@ class ProductRepository implements ProductRepositoryInterface
             'subcategory_id' => is_null($product['subcategory_id'])? $request['subcategory_id']: null,
             'name' => $request['name'],
             'description' => $request['description'],
-            'is_active' => $request['is_active']?? false,
-            'is_actual' => $request['is_actual']?? false,
+            'is_active' => isset($request['is_active'])? true: false,
+            'is_actual' => isset($request['is_actual'])? true: false,
         ]);
         if (isset($request['images'])) {
             if($product->images->isNotEmpty()) {

@@ -45,7 +45,7 @@ class SubcategoryRepository implements SubcategoryRepositoryInterface
         return Subcategory::query()->create([
             'category_id' => $subcategory['category_id'],
             'name' => $subcategory['name'],
-            'is_active' => $subcategory['is_active'] ?? false,
+            'is_active' => isset($subcategory['is_active'])? true: false,
         ]);
     }
 
@@ -59,7 +59,7 @@ class SubcategoryRepository implements SubcategoryRepositoryInterface
         return $subcategory->update([
             'category_id' => $request['category_id'],
             'name' => $request['name'],
-            'is_active' => $request['is_active'] ?? false,
+            'is_active' => isset($request['is_active'])? true: false,
         ]);
     }
 
