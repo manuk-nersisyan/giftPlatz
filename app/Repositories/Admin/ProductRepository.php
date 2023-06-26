@@ -3,6 +3,7 @@
 namespace App\Repositories\Admin;
 
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Repositories\Admin\ProductRepositoryInterface;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables;
@@ -78,11 +79,6 @@ class ProductRepository implements ProductRepositoryInterface
             'is_actual' => isset($request['is_actual'])? true: false,
         ]);
         if (isset($request['images'])) {
-            if($product->images->isNotEmpty()) {
-                foreach($product->images as $img){
-                    Storage::disk('product')->delete($product->id . '/' .$img->image);
-                }
-            }
             $product->images()->delete();
             $productImages = filesSave($request['images'], 'product', $product->id);
             $product->images()->insert($productImages);
@@ -104,5 +100,19 @@ class ProductRepository implements ProductRepositoryInterface
         }
         $product->images()->delete();
         return $product->delete();
+    }
+
+    /**
+     * Summary of deleteImage
+     * @param mixed $request
+     * @return void
+     */
+    public function deleteImage($request)
+    {
+        $productImage = ProductImage::query()->where('id',$request['id'])->where('product_id', $request['product_id'])->first();
+        if($productImage) {
+            Storage::disk('product')->delete($productImage->product_id. '/'.$productImage->image);
+        }
+        ProductImage::query()->where('id', $productImage->id)->delete();
     }
 }

@@ -58,11 +58,27 @@
                         return data ? data : "";
                     },
                  },
-
                 {data: 'name', name: 'name'},
-                {data: 'description', name: 'description'},
-                {data: 'is_active', name: 'is_active'},
-                {data: 'is_actual', name: 'is_actual'},
+                {
+                    "mData": "description",
+                    "render": function(data, type, row) {
+                        var itemString = $('<div>').html(data).text();
+                        return itemString;
+                    },
+                 },
+
+                {
+                    "mData": "is_active",
+                    "render": function(data, type, row) {
+                        return data == 1? true: false
+                    },
+                 },
+                 {
+                    "mData": "is_actual",
+                    "render": function(data, type, row) {
+                        return data == 1? true: false
+                    },
+                 },
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
         });

@@ -150,3 +150,18 @@
   .error {
     border: 1px solid red;
  }
+
+.delete-product-image-container {
+    position:relative;
+}
+
+.delete-product-image {
+    right:0px;
+    position: absolute;
+    margin-top:10px
+}
+
+.product-image {
+    width: 200px;
+    margin-top:10px
+}

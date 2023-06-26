@@ -338,7 +338,7 @@ return [
         [
             'text' => 'Products',
             'url'  => 'admin/products',
-            'icon' => 'fas fa-fw fa-product-hunt',
+            'icon' => 'fa-fw fab fa-product-hunt',
             'can'  => 'read.product',
             'active' => ['admin/products*']
         ],

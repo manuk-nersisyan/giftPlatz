@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DeleteProductImageRequest;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
@@ -98,5 +99,16 @@ class ProductController extends Controller
     {
         $this->productRepository->delete($product);
         return redirect()->route('products.index')->with(['message' => 'Successfully deleted!']);
+    }
+
+    /**
+     * Summary of deleteImage
+     * @param \App\Http\Requests\DeleteProductImageRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function deleteImage(DeleteProductImageRequest $request)
+    {
+        $this->productRepository->deleteImage($request->all());
+        return response()->json(['message' => 'Successfully deleted!'], 200);
     }
 }

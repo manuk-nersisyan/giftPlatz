@@ -125,7 +125,12 @@
     <div class="form-group row">
         <div class="col-6">
             @foreach ($product->images as $image)
-                <img src="{{ Storage::disk('product')->url($product->id .'/'. $image->image) }}" width="200">
+                <div class="delete-product-image-container">
+                    <button type="button" class="close delete-product-image" data-id="{{ $image->id }}" data-product_id="{{ $product->id }}">
+                        <span>&times;</span>
+                    </button>
+                    <img src="{{ Storage::disk('product')->url($product->id .'/'. $image->image) }}" class="product-image">
+                </div>
             @endforeach
         </div>
     </div>

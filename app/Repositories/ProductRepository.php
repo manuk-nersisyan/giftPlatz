@@ -36,9 +36,14 @@ class ProductRepository implements ProductRepositoryInterface
         ->get();
     }
 
+    /**
+     * Summary of getProductsByCategoryId
+     * @param mixed $categoryId
+     * @return \Illuminate\Database\Eloquent\Collection|array<\Illuminate\Database\Eloquent\Builder>
+     */
     public function getProductsByCategoryId($categoryId)
     {
-        return Product::query()->with(['images'])
+        return Product::query()->with(['image','images'])
         ->select([
             'products.*',
             'categories.name as category_name',
@@ -56,6 +61,32 @@ class ProductRepository implements ProductRepositoryInterface
         ->where(function ($q) {
             $q->whereNull('products.subcategory_id')
                 ->orWhere('subcategories.is_active', true);
+        })
+        ->where('products.is_active', true)
+        ->get();
+    }
+    
+    /**
+     * Summary of getProductsBySubcategoryId
+     * @param mixed $subcategoryId
+     * @return \Illuminate\Database\Eloquent\Collection|array<\Illuminate\Database\Eloquent\Builder>
+     */
+    public function getProductsBySubcategoryId($subcategoryId)
+    {
+        return Product::query()->with(['image','images'])
+        ->select([
+            'products.*',
+            'categories.name as category_name',
+            'subcategories.name as subcategory_name'
+        ])
+        ->join('categories', function ($q) {
+            $q->on('categories.id', '=', 'products.category_id')
+                ->where('categories.is_active', true);
+        })
+        ->join('subcategories', function ($q) use($subcategoryId) {
+            $q->on('subcategories.id', '=', 'products.subcategory_id')
+                ->where('subcategories.is_active', true)
+                ->where('subcategories.id', $subcategoryId);
         })
         ->where('products.is_active', true)
         ->get();

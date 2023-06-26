@@ -48,7 +48,12 @@
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
-                {data: 'is_active', name: 'is_active'},
+                {
+                    "mData": "is_active",
+                    "render": function(data, type, row) {
+                        return data == 1? true: false
+                    },
+                },
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
         });

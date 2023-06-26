@@ -33,6 +33,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
                                                         ->middleware(['can:read.subcategory']);
     Route::resource('/subcategories', SubcategoryController::class)->middleware(['can:read.subcategory']);
     Route::resource('/products', ProductController::class)->middleware(['can:read.product']);
+    Route::post('/product-image-delete', [ProductController::class, 'deleteImage'])->name('delete-image')->middleware(['can:action.product']);
     Route::get('/contact', [ContactController::class, 'index'])->name('get-contact')->middleware(['can:read.contact']);
     Route::put('/contact/{contact}', [ContactController::class, 'update'])->name('update-contact')->middleware(['can:read.contact']);
     Route::get('/about-us', [AboutUsController::class, 'index'])->name('get-about-us')->middleware(['can:read.about-us']);
@@ -44,4 +45,5 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::put('/footer/{footer}', [FooterController::class, 'update'])->name('update-footer')->middleware(['can:read.footer']);
 });
 Route::get('/',  [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::get('category/products/{category}',  [App\Http\Controllers\CategoryController::class, 'getProductsByCategoryId'])->name('get-products-by-category-id');
+Route::get('category/products/{category}',  [App\Http\Controllers\CategoryController::class, 'getProductsByCategoryId'])->name('get-products-by-category-id');
+Route::get('subcategory/products/{subcategory}',  [App\Http\Controllers\SubcategoryController::class, 'getProductsBySubcategoryId'])->name('get-products-by-subcategory-id');

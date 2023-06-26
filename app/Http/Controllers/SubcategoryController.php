@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Subcategory;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ContactRepository;
 use App\Repositories\FooterRepository;
 use App\Repositories\ProductRepository;
 
-class CategoryController extends Controller
+class SubcategoryController extends Controller
 {
-    /**
+     /**
      * Summary of headerRepository
      * @var
      */
@@ -49,17 +49,18 @@ class CategoryController extends Controller
 
     /**
      * Summary of getProductsByCategoryId
-     * @param \App\Models\Category $category
+     * @param \App\Models\Subcategory $subcategory
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function getProductsByCategoryId(Category $category)
+    public function getProductsBySubcategoryId(Subcategory $subcategory)
     {
-        if($category->is_active == true) {
+        if($subcategory->is_active == true) {
             $footer = $this->footerRepository->index();
-            $products = $this->productRepository->getProductsByCategoryId($category->id);
+            $products = $this->productRepository->getProductsBySubcategoryId($subcategory->id);
             $categories = $this->categoryRepository->index();
             $contact = $this->contactRepository->index();
-            return view('products', compact('footer','products', 'category', 'categories','contact'));
+            $category = $subcategory->category;
+            return view('products', compact('footer','products', 'category', 'categories', 'subcategory', 'contact'));
         }
     }
 }

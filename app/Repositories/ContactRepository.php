@@ -13,6 +13,5 @@ class ContactRepository implements ContactRepositoryInterface
     public function index()
     {
         return Contact::query()->first();
-
     }
 }

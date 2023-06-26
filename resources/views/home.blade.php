@@ -1,7 +1,5 @@
 @extends('layouts.home')
-
 @section('content')
-
 <div class="about">
     <div class="about__box container">
         <div class="about__wrapper row">

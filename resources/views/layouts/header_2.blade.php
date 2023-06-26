@@ -19,7 +19,7 @@
                 <div class="modal-body" id="result">
                    <ul class="modal__list">
                         <li class="modal__item">
-                            <a class="modal__link" href="">Главная</a>
+                            <a class="modal__link" href="{{ route('home') }}">Главная</a>
                         </li>
                         @foreach ($categories as $category)
                         @if ($category->activeSubcategories->isempty())
@@ -29,10 +29,10 @@
                         </li>
                         @else
                         <li class="modal__item dropdown">
-                            <a class="modal__link dropdown-toggle" id="navbarDropdown" href=# role="button" data-toggle="dropdown">{{ $category->name }}</a>
+                            <a class="modal__link dropdown-toggle" id="navbarDropdown" href="{{ route('get-products-by-category-id', ['category'=>$category ]) }}" role="button" data-toggle="dropdown">{{ $category->name }}</a>
                             <div class="dropdown-menu">
                                 @foreach ($category->activeSubcategories as $subcategory)
-                                <a class="dropdown-item dropdown-item--mob" href="">{{ $subcategory->name }}</a>
+                                <a class="dropdown-item dropdown-item--mob" href="{{ route('get-products-by-subcategory-id', ['subcategory' => $subcategory]) }}">{{ $subcategory->name }}</a>
                                 <div class="dropdown-divider"></div>
                                 @endforeach
                             </div>
@@ -40,7 +40,7 @@
                         @endif
                         @endforeach
                         <li class="modal__item">
-                            <a class="modal__link" href="">Контакты </a>
+                            <a class="modal__link" href="">Контакты</a>
                         </li>
                    </ul>
                 </div>
@@ -51,7 +51,7 @@
           <div id="navbarSupportedContent">
              <ul class="navbar-nav nav__menu row">
                 <li class="nav__item nav-item">
-                    <a class="nav__link nav-link" href="index.html"> <span class="nav__underline">Главная</span></a>
+                    <a class="nav__link nav-link" href="{{ route('home') }}"> <span class="nav__underline">Главная</span></a>
                 </li>
                 @foreach ($categories as $category)
                 @if ($category->activeSubcategories->isempty())
@@ -62,12 +62,12 @@
                 </li>
                 @else
                 <li class="nav__item nav-item dropdown">
-                    <a class="nav__link nav-link dropdown-toggle" id="navbarDropdown" href="" role="" data-toggle="">
+                    <a class="nav__link nav-link dropdown-toggle" id="navbarDropdown" href="{{ route('get-products-by-category-id', ['category'=>$category ]) }}" role="" data-toggle="">
                         <span class="nav__underline">{{ $category->name }}</span>
                     </a>
                     <div class="dropdown-menu">
                         @foreach ($category->activeSubcategories as $subcategory)
-                        <a class="dropdown-item" href="">
+                        <a class="dropdown-item" href="{{ route('get-products-by-subcategory-id', ['subcategory' => $subcategory]) }}">
                             <span>{{ $subcategory->name }}</span>
                         </a>
                         @endforeach

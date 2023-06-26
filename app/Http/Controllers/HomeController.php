@@ -12,6 +12,17 @@ use App\Repositories\ProductRepository;
 class HomeController extends Controller
 {
     /**
+     * Summary of headerRepository
+     * @var
+     */
+    public $headerRepository;
+
+    /**
+     * Summary of headerRepository
+     * @var
+     */
+    public $footerRepository;
+    /**
      * Summary of productRepository
      * @var
      */
@@ -35,32 +46,20 @@ class HomeController extends Controller
      */
     public $contactRepository;
 
-    /**
-     * Summary of headerRepository
-     * @var
-     */
-    public $headerRepository;
 
-    /**
-     * Summary of headerRepository
-     * @var
-     */
-    public $footerRepository;
-
-
-    public function __construct(AboutUsRepository $aboutUsRepository,
+    public function __construct( HeaderRepository $headerRepository,
+                                FooterRepository $footerRepository,
+                                AboutUsRepository $aboutUsRepository,
                                 ProductRepository $productRepository,
                                 CategoryRepository $categoryRepository,
-                                ContactRepository $contactRepository,
-                                HeaderRepository $headerRepository,
-                                FooterRepository $footerRepository)
+                                ContactRepository $contactRepository)
     {
+        $this->headerRepository = $headerRepository;
+        $this->footerRepository = $footerRepository;
         $this->aboutUsRepository = $aboutUsRepository;
         $this->productRepository = $productRepository;
         $this->categoryRepository = $categoryRepository;
         $this->contactRepository = $contactRepository;
-        $this->headerRepository = $headerRepository;
-        $this->footerRepository = $footerRepository;
     }
 
 
@@ -72,13 +71,13 @@ class HomeController extends Controller
     public function index()
     {
 
-        return view('home_v1');
-        // $aboutUs = $this->aboutUsRepository->index();
-        // $products = $this->productRepository->index();
-        // $categories = $this->categoryRepository->index();
-        // $contact = $this->contactRepository->index();
-        // $header = $this->headerRepository->index();
-        // $footer = $this->footerRepository->index();
-        // return view('home', compact('aboutUs', 'products', 'categories', 'contact', 'header', 'footer'));
+        // return view('home_v1');
+        $header = $this->headerRepository->index();
+        $footer = $this->footerRepository->index();
+        $aboutUs = $this->aboutUsRepository->index();
+        $products = $this->productRepository->index();
+        $categories = $this->categoryRepository->index();
+        $contact = $this->contactRepository->index();
+        return view('home', compact('header', 'footer','aboutUs', 'products', 'categories', 'contact'));
     }
 }

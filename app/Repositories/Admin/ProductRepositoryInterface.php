@@ -10,22 +10,29 @@ interface ProductRepositoryInterface
     public function index();
 
     /**
-     * @param array $category
+     * @param array $product
      * @return mixed
      */
-    public function store(array $category);
+    public function store(array $product);
 
     /**
      * @param array $request
-     * @param $category
+     * @param $product
      * @return mixed
      */
-    public function update(array $request, $category);
+    public function update(array $request, $product);
+
+    /**
+     * @param $product
+     * @return mixed
+     */
+    public function delete($product);
+
 
     /**
      * @param $category
      * @return mixed
      */
-    public function delete($category);
+    public function deleteImage($request);
 }
 
