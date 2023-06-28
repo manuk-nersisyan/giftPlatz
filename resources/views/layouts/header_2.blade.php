@@ -9,6 +9,7 @@
              </g>
           </svg>
        </a>
+
        <div class="modal fade" id="PhoneMenu">
           <div class="modal-dialog modal-full">
              <div class="modal-content">
@@ -23,16 +24,16 @@
                         </li>
                         @foreach ($categories as $category)
                         @if ($category->activeSubcategories->isempty())
-
                         <li class="modal__item">
-                            <a class="modal__link" href="{{ route('get-products-by-category-id', ['category'=>$category ]) }}">{{ $category->name }}</a>
+                            <a class="modal__link @if (request()->is('category/'.$category->id)) activePhone @endif" href="{{ route('get-products-by-category-id', ['category'=>$category ]) }}">{{ $category->name }}</a>
                         </li>
                         @else
-                        <li class="modal__item dropdown">
+                        <li class="modal__item dropdown @if (request()->is('subcategory/*')) show @endif">
                             <a class="modal__link dropdown-toggle" id="navbarDropdown" href="{{ route('get-products-by-category-id', ['category'=>$category ]) }}" role="button" data-toggle="dropdown">{{ $category->name }}</a>
-                            <div class="dropdown-menu">
+                            <div class="dropdown-menu @if (request()->is('subcategory/*')) show @endif">
                                 @foreach ($category->activeSubcategories as $subcategory)
-                                <a class="dropdown-item dropdown-item--mob" href="{{ route('get-products-by-subcategory-id', ['subcategory' => $subcategory]) }}">{{ $subcategory->name }}</a>
+                                    <a class="dropdown-item dropdown-item--mob @if (request()->is('subcategory/'.$subcategory->id)) activePhone @endif"
+                                     href="{{ route('get-products-by-subcategory-id', ['subcategory' => $subcategory]) }}">{{ $subcategory->name }}</a>
                                 <div class="dropdown-divider"></div>
                                 @endforeach
                             </div>
@@ -50,18 +51,18 @@
        <nav class="header__nav container-fluid">
           <div id="navbarSupportedContent">
              <ul class="navbar-nav nav__menu row">
-                <li class="nav__item nav-item">
+                <li class="nav__item nav-item @if (request()->is('/')) active @endif">
                     <a class="nav__link nav-link" href="{{ route('home') }}"> <span class="nav__underline">Главная</span></a>
                 </li>
                 @foreach ($categories as $category)
                 @if ($category->activeSubcategories->isempty())
-                <li class="nav__item nav-item">
+                <li class="nav__item nav-item @if (request()->is('category/'.$category->id)) active @endif">
                     <a class="nav__link nav-link" href="{{ route('get-products-by-category-id', ['category'=>$category ]) }}">
                         <span class="nav__underline">{{ $category->name }}</span>
                     </a>
                 </li>
                 @else
-                <li class="nav__item nav-item dropdown">
+                <li class="nav__item nav-item dropdown @if (request()->is('category/'.$category->id) || request()->is('subcategory/*')) active @endif">
                     <a class="nav__link nav-link dropdown-toggle" id="navbarDropdown" href="{{ route('get-products-by-category-id', ['category'=>$category ]) }}" role="" data-toggle="">
                         <span class="nav__underline">{{ $category->name }}</span>
                     </a>

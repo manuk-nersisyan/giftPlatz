@@ -48,7 +48,7 @@
                     </li>
                 </ul>
             </div>
-            {{-- <div class="footer__subscribe subscribe col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+            <div class="footer__subscribe subscribe col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
                 <h5 class="subscribe__title footer__title">ПОДПИШИТЕСЬ НА НАШУ РАССЫЛКУ</h5>
                 <form class="subscribe__box needs-validation" id="subscribeform" action="" method="" novalidate="">
                     <input class="subscribe__input" id="subscribeinput" type="email" placeholder="Напишите Вашу электронную почту">
@@ -61,7 +61,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <div class="modal-title">
-                                    <img src="{{ Storage::disk('header')->url($header->logo) }}" alt="logo"/>
+                                    <img src="{{ Storage::disk('footer')->url($footer->logo) }}" alt="logo"/>
                                 </div>
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
@@ -76,7 +76,7 @@
                 <div class="subscribe__logo">
                     <img src="{{ Storage::disk('footer')->url($footer->logo) }}" alt="logo"/>
                 </div>
-            </div> --}}
+            </div>
         </div>
     </div>
     <div class="footer__giftplatz">{{ $footer->text }}</div>

@@ -6,7 +6,7 @@
           <nav aria-label="breadcrumb">
              <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Главная </a><span>&gt; </span></li>
-                <li class="breadcrumb-item active" aria-current="page">{{ $category->name }}</a><span>&gt; </span></li>
+                <li class="breadcrumb-item" aria-current="page">{{ $category->name }}</a><span>&gt; </span></li>
                 @if (isset($subcategory))
                     <li class="breadcrumb-item active" aria-current="page">{{ $subcategory->name }}</a><span>&gt; </span></li>
                 @endif
@@ -25,7 +25,7 @@
        <div class="assortment_product product row">
         @foreach ($products as $product)
             <div class="product-item product col-lg-4 col-xl-4 col-md-6">
-                <a class="productbox product__box" id="productbox">
+                <a href="{{ route('get-product-by-id', ['product' => $product]) }}" class="productbox product__box" id="productbox">
                     <div class="productbox__image lazy">
                         <div class="content_img">
                             <img src="{{ Storage::disk('product')->url($product->id.'/'.$product->image->image) }}"/>
@@ -42,3 +42,7 @@
     </div>
  </div>
 @endsection
+@push('js')
+
+
+@endpush
