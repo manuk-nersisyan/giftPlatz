@@ -45,7 +45,7 @@
                                 @endif
                             @endforeach
                             <li class="modal__item">
-                                <a class="modal__link" href="">Контакты</a>
+                                <a class="modal__link" href="{{ route('contact') }}">Контакты</a>
                             </li>
                         </ul>
                     </div>
@@ -83,7 +83,7 @@
                     @endif
                     @endforeach
                     <li class="nav__item nav-item">
-                        <a class="nav__link nav-link" href="">
+                        <a class="nav__link nav-link" href="{{ route('contact') }}">
                             <span class="nav__underline">Контакты</span>
                         </a>
                     </li>

@@ -36,27 +36,27 @@
                 <h5 class="map__title footer__title">КАРТА САЙТА</h5>
                 <ul class="map__ul">
                     <li class="map__item">
-                        <a href="">Главная</a>
+                        <a href="{{ route('home') }}">Главная</a>
                     </li>
                        @foreach ($categories as $category)
                        <li class="map__item">
-                            <a href="">{{ $category->name }}</a>
+                            <a href="{{ route('get-products-by-category-id', ['category' => $category]) }}">{{ $category->name }}</a>
                         </li>
                        @endforeach
                     <li class="map__item">
-                        <a href="">Контакты</a>
+                        <a href="{{ route('contact') }}">Контакты</a>
                     </li>
                 </ul>
             </div>
-            <div class="footer__subscribe subscribe col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
-                <h5 class="subscribe__title footer__title">ПОДПИШИТЕСЬ НА НАШУ РАССЫЛКУ</h5>
+            <div class="footer__subscribe  col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                {{-- <h5 class="subscribe__title footer__title">ПОДПИШИТЕСЬ НА НАШУ РАССЫЛКУ</h5>
                 <form class="subscribe__box needs-validation" id="subscribeform" action="" method="" novalidate="">
                     <input class="subscribe__input" id="subscribeinput" type="email" placeholder="Напишите Вашу электронную почту">
                     <div class="invalid-feedback d-block invisible" id="invalid-feedback">Неправильный формат почты</div>
                     <button class="subscribe__button subscribe__validcheck" id="subscribe__validcheck" type="submit">ПОДПИСАТЬСЯ</button>
                     <button class=d-none id="subscribe__openmodal" data-toggle="modal" data-target="#subscribeModal"></button>
-                </form>
-                <div class="modal fade" id="subscribeModal">
+                </form> --}}
+                {{-- <div class="modal fade" id="subscribeModal">
                     <div class="modal-dialog modal-dialog-centered container" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="subscribe__logo">
                     <img src="{{ Storage::disk('footer')->url($footer->logo) }}" alt="logo"/>
                 </div>
@@ -82,3 +82,4 @@
     <div class="footer__giftplatz">{{ $footer->text }}</div>
 </div>
 <script type="text/javascript" src="{{ asset('js/giftplatz.js') }}"></script>
+@stack('js')

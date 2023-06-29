@@ -10579,43 +10579,7 @@ a.text-dark:focus,a.text-dark:hover {
     font-weight: 400;
     font-style: normal;
     font-stretch: normal;
-    src: url(/fonts/c57e537a1c25ff6c5beb211ef1c86634.ttf) format("opentype");
-    font-display: swap
-}
-
-@font-face {
-    font-family: Didona;
-    font-weight: 400;
-    font-style: normal;
-    font-stretch: normal;
-    src: url(/fonts/ae9e93704eb1ada40379b7d7b3256af7.otf) format("opentype");
-    font-display: swap
-}
-
-@font-face {
-    font-family: Roboto-Light;
-    font-weight: 400;
-    font-style: normal;
-    font-stretch: normal;
-    src: url(/fonts/7b5fb88f12bec8143f00e21bc3222124.ttf) format("opentype");
-    font-display: swap
-}
-
-@font-face {
-    font-family: Roboto-Medium;
-    font-weight: 400;
-    font-style: normal;
-    font-stretch: normal;
-    src: url(/fonts/fe13e4170719c2fc586501e777bde143.ttf) format("opentype");
-    font-display: swap
-}
-
-@font-face {
-    font-family: Roboto-Regular;
-    font-weight: 400;
-    font-style: normal;
-    font-stretch: normal;
-    src: url(/fonts/ac3f799d5bbaf5196fab15ab8de8431c.ttf) format("opentype");
+    src: url(/fonts/parietone.ttf) format("opentype");
     font-display: swap
 }
 

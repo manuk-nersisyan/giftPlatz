@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\HeaderController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\FooterController;
+use App\Mail\Email;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,3 +50,11 @@ Route::get('/',  [App\Http\Controllers\HomeController::class, 'index'])->name('h
 Route::get('category/{category}',  [App\Http\Controllers\CategoryController::class, 'getProductsByCategoryId'])->name('get-products-by-category-id');
 Route::get('subcategory/{subcategory}',  [App\Http\Controllers\SubcategoryController::class, 'getProductsBySubcategoryId'])->name('get-products-by-subcategory-id');
 Route::get('product/{product}',  [App\Http\Controllers\ProductConteroller::class, 'getProductById'])->name('get-product-by-id');
+Route::get('contact/',  [App\Http\Controllers\ContacController::class, 'index'])->name('contact');
+Route::post('/sendmail',[App\Http\Controllers\MailController::class, 'sendmail'])->name('sendmail');
+Route::get('/email', function () {
+    Mail::to('manuk.nersisyan.96@gmail.com')
+    ->send(new Email());
+    return back()->with('success', 'Sent Successfully !');
+});
+
