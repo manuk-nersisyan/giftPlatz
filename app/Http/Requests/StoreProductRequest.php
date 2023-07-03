@@ -28,6 +28,7 @@ class StoreProductRequest extends FormRequest
             'subcategory_id' => 'sometimes|nullable',
             'name' => 'required|string|max:255',
             'description' => 'required|string',
+            'hover_description' => 'required|string|max:477',
             'is_active' => 'sometimes|accepted',
             'is_actual' => 'sometimes|accepted',
             'images' => 'required',

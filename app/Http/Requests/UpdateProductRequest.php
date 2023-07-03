@@ -27,6 +27,7 @@ class UpdateProductRequest extends FormRequest
             'category_id' => 'required|integer|exists:categories,id',
              'name' => 'required|string|max:255',
             'description' => 'required|string',
+            'hover_description' => 'required|string|max:477',
             'is_active' => 'sometimes|accepted',
             'is_actual' => 'sometimes|accepted',
             'images' => 'sometimes|nullable',

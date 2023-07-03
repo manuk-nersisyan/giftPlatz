@@ -53,6 +53,7 @@ class ProductRepository implements ProductRepositoryInterface
         $newProduct->subcategory_id = is_null($product['subcategory_id'])? $product['subcategory_id']: null;
         $newProduct->name = $product['name'];
         $newProduct->description = $product['description'];
+        $newProduct->hover_description = $product['hover_description'];
         $newProduct->is_active = isset($product['is_active'])? true: false;
         $newProduct->is_actual = isset($product['is_actual'])? true: false;
         $newProduct->save();
@@ -75,6 +76,7 @@ class ProductRepository implements ProductRepositoryInterface
             'subcategory_id' => is_null($product['subcategory_id'])? $request['subcategory_id']: null,
             'name' => $request['name'],
             'description' => $request['description'],
+            'hover_description' => $request['hover_description'],
             'is_active' => isset($request['is_active'])? true: false,
             'is_actual' => isset($request['is_actual'])? true: false,
         ]);

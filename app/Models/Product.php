@@ -14,6 +14,7 @@ class Product extends Model
         'subcategory_id',
         'name',
         'description',
+        'hover_description',
         'is_active',
         'is_actual',
     ];

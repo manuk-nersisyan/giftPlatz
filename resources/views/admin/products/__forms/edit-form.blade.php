@@ -112,6 +112,23 @@
 
     <div class="form-group row">
         <div class="col-6">
+            <label for="hover_description"  class="required">Hover Description</label>
+            <textarea name="hover_description"
+                    id="hover_description"
+                    class="form-control editor @error('hover_description') is-invalid @enderror"
+                    rows="5">
+                    @if($errors->any()){{ old('hover_description') }}@else{{ $product->hover_description }}@endif</textarea>
+            @error('hover_description')
+            <div class="invalid-feedback">
+                <strong>{{ $message }}</strong>
+            </div>
+            @enderror
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <div class="col-6">
             <label for="images">Images</label>
             <input type="file" name="images[]" class="form-control @error('images*') is-invalid @enderror" multiple>
             @error('images*')
