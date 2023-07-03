@@ -100,23 +100,23 @@
             @csrf
              <div class="touch__left col-lg-6 col-xl-6">
                 <div class="input__group">
-                   <input name="name" class="touch__input touch__name form-control @error('name') is-invalid @enderror" id="touch__name" type="text" placeholder="Как Вас зовут?" required="">
-                    @error('description')
-                        <div class="invalid-feedback d-block invisible">
+                   <input name="name" class="touch__input touch__name form-control" id="touch__name" type="text" placeholder="Как Вас зовут" required>
+                    @error('name')
+                        <div class="invalid-feedback d-block visible">
                             <strong>{{ $message }}</strong>
                         </div>
                     @enderror
                 </div>
                 <div class="input__group">
-                   <input name="phone_number" class="touch__input touch__phone form-control @error('phone_number') is-invalid @enderror" id="touch__phone" type="tel" placeholder="Введите номер телефона" required="">
+                   <input name="phone_number" class="touch__input touch__phone form-control" id="touch__phone" type="tel" placeholder="Введите номер телефона" required>
                     @error('phone_number')
-                        <div class="invalid-feedback d-block invisible">
+                        <div class="invalid-feedback d-block visible">
                             <strong>{{ $message }}</strong>
                         </div>
                     @enderror
                 </div>
                 <div class="input__group">
-                   <input name="email" class="touch__input touch__mail form-control" id="touch__mail" type="email" placeholder="Эл. почта" required="">
+                   <input name="email" class="touch__input touch__mail form-control" id="touch__mail" type="email" placeholder="Эл. почта" required>
                     @error('description')
                         <div class="invalid-feedback d-block visible">
                             <strong>{{ $message }}</strong>
@@ -136,7 +136,7 @@
                 <button class="d-none" id="modalopenbutton" data-toggle="modal" data-target="#sendmessageModal"></button> <button id="mainformsubmit" type="submit">Отправьте сообщение</button>
              </div>
           </form>
-          <div class="modal fade show" id="sendmessageModal" aria-modal="true" style="display:block;">
+          <div class="modal fade show" id="successModal" aria-modal="true">
              <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                    <div class="modal-header">
@@ -152,45 +152,19 @@
           </div>
        </div>
     </div>
-    <div id="map" style="height:600px;"></div>
+    <div id="map"></div>
 </div>
-
-
 @endsection
 @push('js')
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-
-<script src="https://api-maps.yandex.ru/2.0/?load=package.standard&amp;lang=ru-RU&amp;apikey=018dc802-b400-4a6d-acc3-d43d78956d7b" type="text/javascript"></script>
-
-
+<script src="{{ asset('js/jquery.3.7.0.min.js') }}"></script>
 <script>
-ymaps.ready(init);
-
-function init () {
-    var myMap = new ymaps.Map("map", {
-            center: [55.751244, 37.618423],
-            zoom: 13
-        }),
-        myPlacemark = new ymaps.Placemark([55.751244,37.618423], {
-            // Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
-            balloonContentHeader: "Балун метки",
-            balloonContentBody: "Содержимое <em>балуна</em> метки",
-            balloonContentFooter: "Подвал",
-            hintContent: "Giftplatz"
+    @if(Session::has('success'))
+        $('#successModal').addClass("d-block");
+        $( ".close" ).on( "click", function() {
+            $('#successModal').removeClass("d-block");
         });
-    myMap.geoObjects.add(myPlacemark);
-    // Открываем балун на карте (без привязки к геообъекту).
-    myMap.balloon.open([55.751244,37.618423], "1111111", {
-        // Опция: не показываем кнопку закрытия.
-        closeButton: false
-    });
-    // Показываем хинт на карте (без привязки к геообъекту).
-    myMap.hint.show(myMap.getCenter(), "Содержимое хинта", {
-        // Опция: задержка перед открытием.
-        showTimeout: 1500
-    });
-}
-
+    @endif
 </script>
+<script src="https://api-maps.yandex.ru/2.0/?load=package.standard&amp;lang=ru-RU&amp;apikey=018dc802-b400-4a6d-acc3-d43d78956d7b" type="text/javascript"></script>
+<script src="{{ asset('js/yandexMap.js') }}"></script>
 @endpush

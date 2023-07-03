@@ -1487,16 +1487,16 @@ body {
         width:100%
     }
 }
-#contacts_page .touch .touch_box #sendmessageModal .modal-dialog .modal-content{
+#contacts_page .touch .touch_box #successModal .modal-dialog .modal-content{
     background-color:#2d3033;
     color:#fff;
     outline:5px solid #2d3033;
     border:1px solid #999
 }
-#contacts_page .touch .touch_box #sendmessageModal .modal-dialog .modal-content .modal-header{
+#contacts_page .touch .touch_box #successModal .modal-dialog .modal-content .modal-header{
     border-bottom:none
 }
-#contacts_page .touch .touch_box #sendmessageModal .modal-dialog .modal-content .modal-header .modal-title{
+#contacts_page .touch .touch_box #successModal .modal-dialog .modal-content .modal-header .modal-title{
     width:100%;
     display:-webkit-box;
     display:-ms-flexbox;
@@ -1507,15 +1507,18 @@ body {
     padding-left:30px;
     padding-top:20px
 }
-#contacts_page .touch .touch_box #sendmessageModal .modal-dialog .modal-content .modal-header .modal-title img{
+#contacts_page .touch .touch_box #successModal .modal-dialog .modal-content .modal-header .modal-title img{
     width:40%
 }
-#contacts_page .touch .touch_box #sendmessageModal .modal-dialog .modal-content .modal-header .close span{
+#contacts_page .touch .touch_box #successModal .modal-dialog .modal-content .modal-header .close span{
     color:#fff
 }
-#contacts_page .touch .touch_box #sendmessageModal .modal-dialog .modal-content .modal-body{
+#contacts_page .touch .touch_box #successModal .modal-dialog .modal-content .modal-body{
     text-align:center;
     text-transform:uppercase;
     padding-top:25px;
     padding-bottom:50px
+}
+#map {
+   height:600px;
 }

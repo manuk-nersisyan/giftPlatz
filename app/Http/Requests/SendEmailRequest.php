@@ -25,7 +25,7 @@ class SendEmailRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'phone_number' => 'required|string|max:255',
+            'phone_number' => 'required|string|max:15',
             'email' => 'required|email|max:255',
             'description' => 'required|string|max:255',
         ];
@@ -34,10 +34,11 @@ class SendEmailRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.*' => 'Поле не может быть пустым',
-            'description.*' => 'Поле не может быть пустым ',
-            'phone_number.*' => 'Неправильный формат телефона',
-            'email.*' => 'Неправильный формат почты',
+            'name.required' => 'Поле не может быть пустым',
+            'phone_number.required' => 'Поле не может быть пустым',
+            'email.required' => 'Поле не может быть пустым',
+            'email.email' => 'Неправильный формат почты',
+            'description.required' => 'Поле не может быть пустым',
         ];
     }
 }
