@@ -164,6 +164,8 @@
             $('#successModal').removeClass("d-block");
         });
     @endif
+    var lat = {!!  json_encode($contact->lat) !!}
+    var long = {!!  json_encode($contact->long) !!}
 </script>
 <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&amp;lang=ru-RU&amp;apikey=018dc802-b400-4a6d-acc3-d43d78956d7b" type="text/javascript"></script>
 <script src="{{ asset('js/yandexMap.js') }}"></script>
