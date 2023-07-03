@@ -20,9 +20,7 @@ class SubcategoryRepository implements SubcategoryRepositoryInterface
             }]);
         return Datatables::of($subcategories)
             ->addColumn('action', function ($subcategory) {
-                return '<a href="' . route('subcategories.show', ['subcategory' => $subcategory]) . '"class="btn btn-xs btn-info action-buttons">
-                <i class="fa fa-eye"></i>Show</a>
-                <a href="' . route('subcategories.edit', ['subcategory' => $subcategory]) . '"class="btn btn-xs btn-primary action-buttons">
+                return '<a href="' . route('subcategories.edit', ['subcategory' => $subcategory]) . '"class="btn btn-xs btn-primary action-buttons">
                                 <i class="fa fa-edit"></i>Edit</a>
                             <form method="POST"action="' . route('subcategories.destroy', ['subcategory' => $subcategory]) . '">
                                 <input type="hidden" name="_token" value="' . csrf_token() . '"/>

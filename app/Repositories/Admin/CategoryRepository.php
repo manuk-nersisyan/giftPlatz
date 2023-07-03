@@ -17,9 +17,7 @@ class CategoryRepository implements CategoryRepositoryInterface
         $categories = Category::select('categories.*');
         return Datatables::of($categories)
             ->addColumn('action', function ($category) {
-                return '<a href="' . route('categories.show', ['category' => $category]) . '"class="btn btn-xs btn-info action-buttons">
-                <i class="fa fa-eye"></i>Show</a>
-                <a href="' . route('categories.edit', ['category' => $category]) . '"class="btn btn-xs btn-primary action-buttons">
+                return '<a href="' . route('categories.edit', ['category' => $category]) . '"class="btn btn-xs btn-primary action-buttons">
                                 <i class="fa fa-edit"></i>Edit</a>
                             <form method="POST"action="' . route('categories.destroy', ['category' => $category]) . '">
                                 <input type="hidden" name="_token" value="' . csrf_token() . '"/>

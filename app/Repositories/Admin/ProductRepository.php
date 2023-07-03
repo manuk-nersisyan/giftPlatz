@@ -25,9 +25,7 @@ class ProductRepository implements ProductRepositoryInterface
         }]);
         return Datatables::of($products)
             ->addColumn('action', function ($product) {
-                return '<a href="' . route('products.show', ['product' => $product]) . '"class="btn btn-xs btn-info action-buttons">
-                <i class="fa fa-eye"></i>Show</a>
-                <a href="' . route('products.edit', ['product' => $product]) . '"class="btn btn-xs btn-primary action-buttons">
+                return '<a href="' . route('products.edit', ['product' => $product]) . '"class="btn btn-xs btn-primary action-buttons">
                                 <i class="fa fa-edit"></i>Edit</a>
                             <form method="POST"action="' . route('products.destroy', ['product' => $product]) . '">
                                 <input type="hidden" name="_token" value="' . csrf_token() . '"/>
