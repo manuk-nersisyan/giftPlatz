@@ -8,7 +8,7 @@ function init () {
         myPlacemark = new ymaps.Placemark([lat, long], {
             balloonContentHeader: "GiftPlatz",
             balloonContentBody: "Шоколад/Дизайн/Подарок",
-            balloonContentFooter: "Большая черкизовская 24а стр6",
+            balloonContentFooter: "Большая Черкизовская 24а стр6",
             hintContent: "GiftPlatz"
         });
     myMap.geoObjects.add(myPlacemark);
