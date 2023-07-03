@@ -79,7 +79,6 @@ class ProductRepository implements ProductRepositoryInterface
             'is_actual' => isset($request['is_actual'])? true: false,
         ]);
         if (isset($request['images'])) {
-            $product->images()->delete();
             $productImages = filesSave($request['images'], 'product', $product->id);
             $product->images()->insert($productImages);
         };
