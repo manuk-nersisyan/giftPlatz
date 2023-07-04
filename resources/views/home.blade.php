@@ -29,7 +29,7 @@
                 <div class="productbox__image lazy">
                     <div class="content_img">
                         <img src="{{ Storage::disk('product')->url($product->id .'/'. $product->image->image) }}"/>
-                        <div class="productbox__paragraph">{{ $product->description_hover }}</div>
+                        <div class="productbox__paragraph">{{ $product->hover_description }}</div>
                     </div>
                 </div>
                 <div class="productbox__title">

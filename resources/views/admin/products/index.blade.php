@@ -26,6 +26,7 @@
                 <th>Subategory</th>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Hover Description</th>
                 <th>Is Active</th>
                 <th>Is Actual</th>
                 <th class="col-2 action-th">Actions</th>
@@ -66,7 +67,7 @@
                         return itemString;
                     },
                  },
-
+                 {data: 'hover_description', name: 'hover_description'},
                 {
                     "mData": "is_active",
                     "render": function(data, type, row) {

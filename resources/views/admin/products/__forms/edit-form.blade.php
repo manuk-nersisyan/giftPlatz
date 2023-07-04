@@ -116,8 +116,7 @@
             <textarea name="hover_description"
                     id="hover_description"
                     class="form-control editor @error('hover_description') is-invalid @enderror"
-                    rows="5">
-                    @if($errors->any()){{ old('hover_description') }}@else{{ $product->hover_description }}@endif</textarea>
+                    rows="5">@if($errors->any()){{ old('hover_description') }}@else{{ $product->hover_description }}@endif</textarea>
             @error('hover_description')
             <div class="invalid-feedback">
                 <strong>{{ $message }}</strong>
