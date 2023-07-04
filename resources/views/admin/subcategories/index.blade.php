@@ -22,9 +22,9 @@
             <thead>
             <tr>
                 <th>Id</th>
-                <th>Category</th>
                 <th>Name</th>
-                <th>Is Active</th>
+                <th>Active</th>
+                <th>Category</th>
                 <th class="col-2 action-th">Actions</th>
             </tr>
             </thead>
@@ -48,7 +48,6 @@
             ajax: "{{ route('subcategories.index') }}",
             columns: [
                 {data: 'id', name: 'id'},
-                {data: 'category.name', name: 'category.name'},
                 {data: 'name', name: 'name'},
                 {
                     "mData": "is_active",
@@ -56,6 +55,7 @@
                         return data == 1? true: false
                     },
                 },
+                {data: 'category.name', name: 'category.name'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
         });

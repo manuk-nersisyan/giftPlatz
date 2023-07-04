@@ -22,13 +22,13 @@
             <thead>
             <tr>
                 <th>Id</th>
-                <th>Category</th>
-                <th>Subategory</th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Hover Description</th>
-                <th>Is Active</th>
-                <th>Is Actual</th>
+                <th>Active</th>
+                <th>Actual</th>
+                <th>Category</th>
+                <th>Subategory</th>
                 <th class="col-2 action-th">Actions</th>
             </tr>
             </thead>
@@ -52,13 +52,6 @@
             ajax: "{{ route('products.index') }}",
             columns: [
                 {data: 'id', name: 'id'},
-                {data: 'category.name', name: 'category.name'},
-                {
-                    "mData": "subcategory.name",
-                    "render": function(data, type, row) {
-                        return data ? data : "";
-                    },
-                 },
                 {data: 'name', name: 'name'},
                 {
                     "mData": "description",
@@ -66,20 +59,27 @@
                         var itemString = $('<div>').html(data).text();
                         return itemString;
                     },
-                 },
-                 {data: 'hover_description', name: 'hover_description'},
+                    },
+                    {data: 'hover_description', name: 'hover_description'},
                 {
                     "mData": "is_active",
                     "render": function(data, type, row) {
                         return data == 1? true: false
                     },
-                 },
-                 {
+                    },
+                    {
                     "mData": "is_actual",
                     "render": function(data, type, row) {
                         return data == 1? true: false
                     },
-                 },
+                    },
+                {data: 'category.name', name: 'category.name'},
+                {
+                    "mData": "subcategory.name",
+                    "render": function(data, type, row) {
+                        return data ? data : "";
+                    },
+                },
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
         });

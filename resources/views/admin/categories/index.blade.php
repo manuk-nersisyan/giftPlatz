@@ -23,7 +23,7 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Is Active</th>
+                <th>Active</th>
                 <th class="col-2 action-th">Actions</th>
             </tr>
             </thead>

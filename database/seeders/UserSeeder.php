@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         $data = [
             'id' => 16,
             'name'=>'admin',
-            'email' => 'admin@admin.com',
+            'email' => 'armenboranyan@gmail.com',
             'password' => Hash::make('P@$$w0rdGP2023'),
             'role_id' => Role::query()->where('slug',config('role.admin.slug'))->first()->id
     ];
