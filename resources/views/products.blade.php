@@ -19,7 +19,11 @@
     <div class="assortment__wrapper container">
        <div class="titlebox" id="titlebox">
           <div class="titlebox__wrapper">
-             <h2 class="titlebox__title">{{ $category->name }}</h2>
+            @if (isset($subcategory))
+                <h2 class="titlebox__title">{{ $subcategory->name }}</h2>
+            @else
+                <h2 class="titlebox__title">{{ $category->name }}</h2>
+            @endif
           </div>
        </div>
        <div class="assortment_product product row">
