@@ -25,11 +25,11 @@
     <div class="actual__assortment row">
         @foreach ($products as $product)
         <div class="product-item product col-lg-4 col-xl-4 col-md-6">
-            <a class="productbox product__box" id="productbox">
+            <a href="{{ route('get-product-by-id', ['product' => $product]) }}" class="productbox product__box" id="productbox">
                 <div class="productbox__image lazy">
                     <div class="content_img">
                         <img src="{{ Storage::disk('product')->url($product->id .'/'. $product->image->image) }}"/>
-                        <div class="productbox__paragraph">{{ $product->description }}</div>
+                        <div class="productbox__paragraph">{{ $product->description_hover }}</div>
                     </div>
                 </div>
                 <div class="productbox__title">
