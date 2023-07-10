@@ -6,9 +6,9 @@
           <nav aria-label="breadcrumb">
              <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Главная </a><span>&gt; </span></li>
-                <li class="breadcrumb-item" aria-current="page">{{ $category->name }}</a><span>&gt; </span></li>
+                <li class="breadcrumb-item" aria-current="page">{{ $category->name }}</a>@if (isset($subcategory))<span>&gt; </span>@endif</li>
                 @if (isset($subcategory))
-                    <li class="breadcrumb-item active" aria-current="page">{{ $subcategory->name }}</a><span>&gt; </span></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $subcategory->name }}</a></li>
                 @endif
              </ol>
           </nav>

@@ -48,17 +48,23 @@ class SubcategoryRepository implements SubcategoryRepositoryInterface
     }
 
     /**
+     * Summary of update
      * @param array $request
-     * @param $subcategory
+     * @param mixed $subcategory
      * @return mixed
      */
     public function update(array $request, $subcategory)
     {
-        return $subcategory->update([
+        $subcategory->update([
             'category_id' => $request['category_id'],
             'name' => $request['name'],
             'is_active' => isset($request['is_active'])? true: false,
         ]);
+        foreach ($subcategory->products as $product) {
+            $product->category()->associate($request['category_id']);
+            $product->save();
+        }
+        return $subcategory;
     }
 
     /**

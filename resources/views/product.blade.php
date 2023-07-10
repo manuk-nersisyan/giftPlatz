@@ -8,7 +8,7 @@
                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Главная </a><span>&gt; </span></li>
                 <li class="breadcrumb-item"><a href="{{ route('get-products-by-category-id', ['category' => $category]) }}">{{ $category->name }}</a><span>&gt; </span></li>
                 @if (isset($subcategory))
-                    <li class="breadcrumb-item" aria-current="page">{{ $subcategory->name }}</a><span>&gt; </span></li>
+                    <li class="breadcrumb-item" aria-current="page"><a href="{{ route('get-products-by-subcategory-id', ['subcategory' => $subcategory]) }}">{{ $subcategory->name }}</a><span>&gt; </span></li>
                 @endif
                 <li class="breadcrumb-item active" aria-current="page">{{ $product->name }}</li>
              </ol>

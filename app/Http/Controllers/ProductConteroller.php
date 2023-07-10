@@ -56,7 +56,8 @@ class ProductConteroller extends Controller
             $categories = $this->categoryRepository->index();
             $contact = $this->contactRepository->index();
             $category = $product->category;
-            return view('product', compact('footer','product', 'category', 'categories','contact'));
+            $subcategory = $product->subcategory;
+            return view('product', compact('footer','product', 'subcategory', 'category', 'categories','contact'));
         }
         return redirect()->route('home');
     }
