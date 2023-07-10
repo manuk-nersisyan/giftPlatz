@@ -7,7 +7,7 @@
                     name="category_id"
                     class="form-control @error('category_id') is-invalid @enderror"
                     required>
-                <option value=" " selected>Choose</option>
+                <option value="" selected>Choose</option>
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}"
                         @if($errors->any() && old('category_id') == $category->id) selected @endif>
@@ -26,7 +26,7 @@
             <select id="subcategory_id"
                     name="subcategory_id"
                     class="form-control @error('subcategory_id') is-invalid @enderror">
-            <option value=" " selected>Choose</option>
+            <option value="" selected>Choose</option>
             </select>
             @error('subcategory_id')
             <div class="invalid-feedback">

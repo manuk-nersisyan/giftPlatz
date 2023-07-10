@@ -69,7 +69,7 @@
                     </li>
                     @else
                     <li class="nav__item nav-item dropdown">
-                        <a class="nav__link nav-link dropdown-toggle" id="navbarDropdown" href="{{ route('get-products-by-category-id', ['category'=>$category ]) }}" role="" data-toggle="">
+                        <a class="nav__link nav-link dropdown-toggle" id="navbarDropdown" href="{{ $category->subcategories->isNotEmpty()? route('home'): route('get-products-by-category-id', ['category'=>$category ]) }}" role="" data-toggle="">
                             <span class="nav__underline">{{ $category->name }}</span>
                         </a>
                         <div class="dropdown-menu">

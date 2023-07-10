@@ -62,5 +62,6 @@ class SubcategoryController extends Controller
             $category = $subcategory->category;
             return view('products', compact('footer','products', 'category', 'categories', 'subcategory', 'contact'));
         }
+        return redirect()->route('home');
     }
 }

@@ -12,7 +12,7 @@ $("body").on('change', '#category_id', function () {
                 console.log(res);
                 $("#subcategory_id option").remove();
                 $('#subcategory_id').append($('<option>',{
-                    value: '""',
+                    value: '',
                     text: 'Choose',
                 }));
                 $.each( res, function( key, value ) {
@@ -26,7 +26,7 @@ $("body").on('change', '#category_id', function () {
     } else {
         $("#subcategory_id option").remove();
         $('#subcategory_id').append($('<option>',{
-            value: '""',
+            value: '',
             text: 'Choose',
         }));
     }

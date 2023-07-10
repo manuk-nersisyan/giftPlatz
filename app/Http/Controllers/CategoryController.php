@@ -50,16 +50,20 @@ class CategoryController extends Controller
     /**
      * Summary of getProductsByCategoryId
      * @param \App\Models\Category $category
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function getProductsByCategoryId(Category $category)
     {
         if($category->is_active == true) {
+            if($category->subcategories->isNotEmpty()) {
+                return redirect()->route('home');
+            }
             $footer = $this->footerRepository->index();
             $products = $this->productRepository->getProductsByCategoryId($category->id);
             $categories = $this->categoryRepository->index();
             $contact = $this->contactRepository->index();
             return view('products', compact('footer','products', 'category', 'categories','contact'));
         }
+        return redirect()->route('home');
     }
 }

@@ -58,5 +58,6 @@ class ProductConteroller extends Controller
             $category = $product->category;
             return view('product', compact('footer','product', 'category', 'categories','contact'));
         }
+        return redirect()->route('home');
     }
 }
