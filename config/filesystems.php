@@ -53,6 +53,28 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
+        'product' => [
+            'driver' => 'local',
+            'root'   => storage_path('app/public/files/products'),
+            'url'    => env('APP_URL').'/storage/files/products'
+        ],
+        'aboutUs' => [
+            'driver' => 'local',
+            'root'   => storage_path('app/public/files/about-us'),
+            'url'    => env('APP_URL').'/storage/files/about-us'
+        ],
+
+        'header' => [
+            'driver' => 'local',
+            'root'   => storage_path('app/public/files/header'),
+            'url'    => env('APP_URL').'/storage/files/header'
+        ],
+
+        'footer' => [
+            'driver' => 'local',
+            'root'   => storage_path('app/public/files/footer'),
+            'url'    => env('APP_URL').'/storage/files/footer'
+        ],
     ],
 
     /*

@@ -1,4 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/js/showHidePassword.js": "/js/showHidePassword.js",
+    "/js/getSubcategoriesByCategoryId.js": "/js/getSubcategoriesByCategoryId.js",
+    "/js/deleteProductImage.js": "/js/deleteProductImage.js",
+    "/css/app.css": "/css/app.css",
+    "/css/style.css": "/css/style.css"
 }

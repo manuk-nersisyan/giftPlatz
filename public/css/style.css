@@ -1,0 +1,83 @@
+.content-box {
+  padding-bottom: 50px;
+}
+
+.action-th {
+  width: 11%;
+}
+
+.action-buttons {
+  width: 70px;
+  margin: 2px;
+  float: left;
+  padding: 2px 0px;
+}
+
+.required:after {
+  content: " *";
+  color: red;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+th {
+  white-space: nowrap;
+  padding-right: 15px;
+  padding-left: 5px;
+}
+
+table {
+  width: 100% !important;
+}
+
+.trashShowIcons {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding-left: 0;
+}
+
+.change-password {
+  margin-right: 10px;
+}
+
+.field-icon {
+  float: right;
+  margin-right: 9px;
+  margin-top: -27px;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.ck .ck-editor__main > .ck-editor__editable.ck-read-only {
+  background: #E9ECEF;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.error {
+  border: 1px solid red;
+}
+
+.delete-product-image-container {
+  position: relative;
+}
+
+.delete-product-image {
+  right: 0px;
+  position: absolute;
+  margin-top: 10px;
+}
+
+.product-image {
+  width: 200px;
+  margin-top: 10px;
+}

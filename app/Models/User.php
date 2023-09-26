@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -21,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
     ];
 
     /**
@@ -41,4 +43,29 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+     /**
+     * @return \Illuminate\Database\Eloquent\HigherOrderBuilderProxy|\Illuminate\Support\HigherOrderCollectionProxy|mixed
+     */
+    public static function role()
+    {
+        return Role::query()->find(Auth::user()->role_id)->slug;
+    }
+
+     /**
+     * @return bool
+     */
+    public static function editorRole()
+    {
+        return self::role() == config('role.editor.slug');
+    }
+
+    /**
+     * @return bool
+     */
+    public static function adminRole()
+    {
+        return self::role() == config('role.admin.slug');
+    }
+
 }
