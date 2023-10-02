@@ -65,7 +65,7 @@ class ProductRepository implements ProductRepositoryInterface
         ->where('products.is_active', true)
         ->get();
     }
-    
+
     /**
      * Summary of getProductsBySubcategoryId
      * @param mixed $subcategoryId
@@ -89,6 +89,7 @@ class ProductRepository implements ProductRepositoryInterface
                 ->where('subcategories.id', $subcategoryId);
         })
         ->where('products.is_active', true)
+        ->orderBy('created_at', 'DESC')
         ->get();
     }
 }
