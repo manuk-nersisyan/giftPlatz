@@ -5,7 +5,7 @@
        <div class="row">
           <nav aria-label="breadcrumb">
              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="">Главная </a><span>&gt; </span></li>
+                <li class="breadcrumb-item"><a href="{{ route('home') }}">Главная </a><span>&gt; </span></li>
                 <li class="breadcrumb-item active" aria-current="page">Контакты</li>
              </ol>
           </nav>
@@ -88,7 +88,7 @@
           </ul>
        </div>
     </div>
-    <div class="touch">
+    {{-- <div class="touch">
        <div class="touch_box container">
           <div class="titlebox" id="titlebox">
              <div class="titlebox__wrapper">
@@ -151,7 +151,7 @@
              </div>
           </div>
        </div>
-    </div>
+    </div> --}}
     <div id="map"></div>
 </div>
 @endsection
