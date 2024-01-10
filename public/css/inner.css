@@ -643,6 +643,11 @@ body {
     }
 }
 
+.about{
+    background-color:#e7e9e6;
+    padding-top:0;
+    padding-bottom:90px;
+}
 @media (max-width:767px){
     .about{
         padding-top:0
